@@ -1,0 +1,32 @@
+{{ form_start(form, {'attr': {'id': 'contactForm', 'class': 'formvalidation'}, 'action': '/stupidbots'}) }}
+<div class='row'>
+    <div class='col-md-6 col-sm-12 col-xs-12'>
+        <div class="form-group">
+            {{ form_label(form.name) }}
+            {{ form_widget(form.name) }}
+            {{ form_errors(form.name) }}
+        </div>
+    </div>
+    <div class='col-md-6 col-sm-12 col-xs-12'>
+        <div class="form-group">
+            {{ form_label(form.email) }}
+            {{ form_widget(form.email) }}
+            {{ form_errors(form.email) }}
+        </div>
+    </div>
+</div>
+
+<div class='row'>
+    <div class='col-md-12 col-sm-12 col-xs-12'>
+        <div class="form-group">
+            {{ form_label(form.message) }}
+            {{ form_widget(form.message, {'attr': {'rows': 4}}) }}
+            {{ form_errors(form.message) }}
+        </div>
+    </div>
+</div>
+
+<button type='submit' class='btn btn-primary'>
+    {{ 'Send' | trans }}
+</button>
+{{ form_end(form) }}

@@ -1,0 +1,30 @@
+{% extends "@App/page.html.twig" %}
+
+{% block title title %}
+{% block pageHeaderTitle headerTitle %}
+
+{% block pageContent %}
+    {% for flash_message in app.session.flashBag.get('notice') %}
+        <div class="alert alert-success" role="alert">
+            {{ flash_message }}
+        </div>
+    {% endfor %}
+
+    {% block additionalData %}
+    {% endblock %}
+
+    {% block contactForm %}
+    <div>
+        {% include 'nacholibreContactBundle::_contact_form.html.twig' %}
+    </div>
+    {% endblock %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        $(function() {
+            $('#contactForm').attr('action', '');
+        });
+    </script>
+{% endblock %}
