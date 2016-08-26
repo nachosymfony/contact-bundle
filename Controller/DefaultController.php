@@ -16,8 +16,19 @@ class DefaultController extends Controller {
 
         $translator = $this->get('translator');
 
-        $siteName = $this->container->getParameter('nacholibre_contact')['site_name'];
-        $toEmails = $this->container->getParameter('nacholibre_contact')['to_emails'];
+        $cnf = $this->container->getParameter('nacholibre_contact');
+
+        $siteName = $cnf['site_name'];
+
+        if (isset($cnf['config_entity'])) {
+            $entityClass = $cnf['config_entity'];
+            $em = $this->getDoctrine()->getManager();
+            $repo = $em->getRepository($entityClass);
+            $entityConfig = $repo->getConfig();
+            $toEmails = [$entityConfig->getContactEmail()];
+        } else {
+            $toEmails = $cnf['to_emails'];
+        }
 
         if ($form->isValid()) {
             $name = $form->get('name')->getData();

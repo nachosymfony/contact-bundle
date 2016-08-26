@@ -22,9 +22,13 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
+                ->scalarNode('config_entity')
+                    //->isRequired()
+                    //->cannotBeEmpty()
+                ->end()
                 ->arrayNode('to_emails')
-                    ->isRequired()
-                    ->cannotBeEmpty()
+                    //->isRequired()
+                    //->cannotBeEmpty()
                     ->prototype('scalar')
                     ->end()
                 ->end()
