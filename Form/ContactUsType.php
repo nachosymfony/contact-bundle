@@ -21,7 +21,7 @@ class ContactUsType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
-                'label' => 'Name',
+                'label' => 'sender_name',
                 'required' => true,
                 'mapped' => false,
                 'constraints' => [
@@ -29,7 +29,7 @@ class ContactUsType extends AbstractType
                 ],
             ])
             ->add('email', EmailType::class, [
-                'label' => 'Email',
+                'label' => 'email',
                 'required' => true,
                 'mapped' => false,
                 'constraints' => [
@@ -46,7 +46,7 @@ class ContactUsType extends AbstractType
             #    ],
             #])
             ->add('message', TextareaType::class, [
-                'label' => 'Message',
+                'label' => 'message',
                 'required' => true,
                 'constraints' => [
                     new NotBlank(),

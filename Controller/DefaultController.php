@@ -20,14 +20,17 @@ class DefaultController extends Controller {
 
         $siteName = $cnf['site_name'];
 
+        $toEmails = $cnf['to_emails'];
+
         if (isset($cnf['config_entity'])) {
             $entityClass = $cnf['config_entity'];
             $em = $this->getDoctrine()->getManager();
             $repo = $em->getRepository($entityClass);
             $entityConfig = $repo->getConfig();
-            $toEmails = [$entityConfig->getContactEmail()];
-        } else {
-            $toEmails = $cnf['to_emails'];
+
+            if ($entityConfig->getContactEmail()) {
+                $toEmails = [$entityConfig->getContactEmail()];
+            }
         }
 
         if ($form->isValid()) {
@@ -70,7 +73,7 @@ class DefaultController extends Controller {
 
             $this->addFlash(
                 'notice',
-                $translator->trans('Your message was sent') . '!'
+                $translator->trans('flash.message_sent') . '!'
             );
 
             $form = $this->createForm(ContactUsType::class);

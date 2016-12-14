@@ -1,0 +1,13 @@
+title:
+    contact_us: 'Contact us'
+
+header:
+    contact_us: 'Contact us'
+
+flash:
+    message_sent: 'Your message was sent'
+
+sender_name: Name
+email: Email
+message: Message
+send: Send

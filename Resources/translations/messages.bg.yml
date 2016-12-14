@@ -1,6 +1,19 @@
-Message: Съобщение
-Sent from: Изпратено от
-Email: Email
-Name: Име
-Contact Form: Форма за обратна връзка
-Contact Us: Контакти
+#Message: Съобщение
+#Sent from: Изпратено от
+#Email: Email
+#Contact Form: Форма за обратна връзка
+#Contact Us: Контакти
+
+title:
+    contact_us: 'Обратна връзка'
+
+header:
+    contact_us: 'Обратна връзка'
+
+flash:
+    message_sent: 'Съобщението е изпратено'
+
+sender_name: Име
+email: Email
+message: Съобщение
+send: Изпрати
